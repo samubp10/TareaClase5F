@@ -54,12 +54,19 @@ public class Prueba {
         int columna = escaner.nextInt();
         System.out.println("¿Qué fila le gustaría que se comprobase?");
         int fila = escaner.nextInt();
+        int i = 1;
         for (CuadradoMagico cuadrado : cuadrados) {
+
             if (cuadrado.esCuadradoMagico(fila, columna)) {
-                System.out.println("El cuadrado " + cuadrado + " es un cuadrado mágico");
+                System.out.println("El cuadrado cuadrado" + i + " es un cuadrado mágico");
+                i++;
+
             } else {
-                System.out.println("El cuadrado " + cuadrado + " no es un cuadrado mágico");
+                System.out.println("El cuadrado cuadrado" + i + " no es un cuadrado mágico");
+                i++;
+
             }
+
         }
 
     }

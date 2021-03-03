@@ -30,7 +30,7 @@ public class CuadradoMagico {
 
     public int sumarFila(int fila) {
         int resultado = 0;
-        if (fila > cuadradoMagico[0].length || fila < 0) {
+        if (fila >= cuadradoMagico[0].length || fila < 0) {
             return 0;
         }
         for (int i = 0; i < cuadradoMagico[0].length; i++) {
@@ -41,7 +41,7 @@ public class CuadradoMagico {
 
     public int sumarColumna(int columna) {
         int resultado = 0;
-        if (columna > cuadradoMagico[0].length || columna < 0) {
+        if (columna >= cuadradoMagico[0].length || columna < 0) {
             return 0;
         }
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -95,4 +95,11 @@ public class CuadradoMagico {
         }
     }
 
+    @Override
+    public String toString() {
+        return "CuadradoMagico{" + "cuadradoMagico=" + cuadradoMagico + '}';
+    }
+
+    
+    
 }
