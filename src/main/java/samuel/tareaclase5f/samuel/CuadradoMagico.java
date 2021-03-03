@@ -22,7 +22,7 @@ public class CuadradoMagico {
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
 
-                int enteroAleatorio = random.nextInt(100) + 1;
+                int enteroAleatorio = random.nextInt(9) + 1;
                 cuadradoMagico[i][j] = enteroAleatorio;
             }
         }
@@ -85,9 +85,13 @@ public class CuadradoMagico {
     }
 //Es un método booleano que devuelve true en el caso en el que sea un cuadrado mágico
 
-    public boolean esCuadradoMagico(int fila, int columna) {
-        if (this.sumarFila(fila) == this.sumarColumna(columna)
-                && this.sumarFila(fila) == this.sumarDiagonalPrincipal() && this.sumarFila(fila) == this.sumarDiagonalSecundaria()) {
+    public boolean esCuadradoMagico() {
+        int resultado;
+        for (int i = 0; i < cuadradoMagico[0].length; i++) {
+            
+        }
+        if (this.sumarFila(1) == this.sumarColumna(1)
+                && this.sumarFila(1) == this.sumarDiagonalPrincipal() && this.sumarFila(1) == this.sumarDiagonalSecundaria()) {
             return true;
         }
         return false;
