@@ -15,13 +15,14 @@ public class CuadradoMagico {
 
     private int[][] cuadradoMagico;
 
-    public CuadradoMagico(int[][] cuadradoMagico) {
+    public CuadradoMagico() {
         this.cuadradoMagico = new int[3][3];
         Random random = new Random();
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
 
                 int enteroAleatorio = random.nextInt(100) + 1;
+                cuadradoMagico[i][j] = enteroAleatorio;
             }
         }
 
@@ -40,6 +41,9 @@ public class CuadradoMagico {
 
     public int sumarColumna(int columna) {
         int resultado = 0;
+        if (columna > cuadradoMagico[0].length || columna < 0) {
+            return 0;
+        }
         for (int i = 0; i < cuadradoMagico.length; i++) {
             resultado += cuadradoMagico[i][columna];
         }
@@ -82,14 +86,13 @@ public class CuadradoMagico {
         }
         return false;
     }
-    
-     public void imprimirMatriz() {
+
+    public void imprimirMatriz() {
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
                 System.out.println(cuadradoMagico[i][j]);
             }
         }
     }
-    
-    
+
 }
