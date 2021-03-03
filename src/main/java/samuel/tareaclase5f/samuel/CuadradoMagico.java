@@ -46,7 +46,7 @@ public class CuadradoMagico {
         return resultado;
     }
 
-     public int sumarDiagonalPrincipal() {
+    public int sumarDiagonalPrincipal() {
         int[] diagonalPrincipal = new int[cuadradoMagico.length];
         int resultado = 0;
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -60,8 +60,8 @@ public class CuadradoMagico {
         }
         return resultado;
     }
-     
-     public int sumarDiagonalSecundaria() {
+
+    public int sumarDiagonalSecundaria() {
         int[] diagonalSecundaria = new int[cuadradoMagico.length];
         int resultado = 0;
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -74,4 +74,14 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+
+    public boolean esCuadradoMagico(int fila, int columna) {
+        if (this.sumarFila(fila) == this.sumarColumna(columna)
+                && this.sumarFila(fila) == this.sumarDiagonalPrincipal() && this.sumarFila(fila) == this.sumarDiagonalSecundaria()) {
+            return true;
+        }
+        return false;
+    }
+    
+    
 }
