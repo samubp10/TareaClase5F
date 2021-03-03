@@ -18,7 +18,7 @@ public class CuadradoMagico {
     public CuadradoMagico(int[][] cuadradoMagico) {
         this.cuadradoMagico = new int[3][3];
         Random random = new Random();
-        for (int i = 0; i < cuadradoMagico.length;) {
+        for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
 
                 int enteroAleatorio = random.nextInt(100) + 1;
@@ -26,5 +26,17 @@ public class CuadradoMagico {
         }
 
     }
+
+    public int sumarFila(int fila) {
+        int resultado = 0;
+        if (fila > cuadradoMagico[0].length || fila < 0) {
+            return 0;
+        }
+        for (int i = 0; i < cuadradoMagico[0].length; i++) {
+            resultado += cuadradoMagico[fila][i];
+        }
+        return resultado;
+    }
+
 
 }
