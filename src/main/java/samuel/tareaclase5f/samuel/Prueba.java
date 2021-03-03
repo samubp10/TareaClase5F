@@ -20,6 +20,7 @@ public class Prueba {
     public static void main(String[] args) {
         ArrayList<CuadradoMagico> cuadrados = new ArrayList<CuadradoMagico>();
         Scanner escaner = new Scanner(System.in);
+        //Los objetos de tipo CuadradoMagico
         CuadradoMagico cuadrado1 = new CuadradoMagico();
         CuadradoMagico cuadrado2 = new CuadradoMagico();
         CuadradoMagico cuadrado3 = new CuadradoMagico();
@@ -35,6 +36,7 @@ public class Prueba {
         CuadradoMagico cuadrado13 = new CuadradoMagico();
         CuadradoMagico cuadrado14 = new CuadradoMagico();
         CuadradoMagico cuadrado15 = new CuadradoMagico();
+        //Meto los objetos en el array list
         cuadrados.add(cuadrado1);
         cuadrados.add(cuadrado2);
         cuadrados.add(cuadrado3);
@@ -50,11 +52,14 @@ public class Prueba {
         cuadrados.add(cuadrado13);
         cuadrados.add(cuadrado14);
         cuadrados.add(cuadrado15);
+        //Pido al usuario tanto la columna como la fila que quiere comprobar
         System.out.println("¿Qué columna le gustaría que se comprobase?");
         int columna = escaner.nextInt();
         System.out.println("¿Qué fila le gustaría que se comprobase?");
         int fila = escaner.nextInt();
         int i = 1;
+        //Recorro el arraylist ejecutanto el método esCuadradoMagico para saber 
+        //si ese cuadrado es un cuadrado mágico o no
         for (CuadradoMagico cuadrado : cuadrados) {
 
             if (cuadrado.esCuadradoMagico(fila, columna)) {

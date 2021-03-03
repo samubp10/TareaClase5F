@@ -14,6 +14,7 @@ import java.util.Random;
 public class CuadradoMagico {
 
     private int[][] cuadradoMagico;
+//Constructor
 
     public CuadradoMagico() {
         this.cuadradoMagico = new int[3][3];
@@ -27,6 +28,7 @@ public class CuadradoMagico {
         }
 
     }
+//Recorre la fila introducida y suma sus valores
 
     public int sumarFila(int fila) {
         int resultado = 0;
@@ -38,6 +40,7 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+//Recorre la columna introducida por el usuario y la suma
 
     public int sumarColumna(int columna) {
         int resultado = 0;
@@ -49,6 +52,7 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+//Recorre la diagonal principal del array y la suma
 
     public int sumarDiagonalPrincipal() {
         int[] diagonalPrincipal = new int[cuadradoMagico.length];
@@ -64,6 +68,7 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+//Recorre la diagonal secundaria del array y la suma
 
     public int sumarDiagonalSecundaria() {
         int[] diagonalSecundaria = new int[cuadradoMagico.length];
@@ -78,6 +83,7 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+//Es un método booleano que devuelve true en el caso en el que sea un cuadrado mágico
 
     public boolean esCuadradoMagico(int fila, int columna) {
         if (this.sumarFila(fila) == this.sumarColumna(columna)
@@ -86,6 +92,7 @@ public class CuadradoMagico {
         }
         return false;
     }
+//Recorre la matriz imprimiendo los valores
 
     public void imprimirMatriz() {
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -95,11 +102,4 @@ public class CuadradoMagico {
         }
     }
 
-    @Override
-    public String toString() {
-        return "CuadradoMagico{" + "cuadradoMagico=" + cuadradoMagico + '}';
-    }
-
-    
-    
 }
