@@ -83,5 +83,13 @@ public class CuadradoMagico {
         return false;
     }
     
+     public void imprimirMatriz() {
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico[i].length; j++) {
+                System.out.println(cuadradoMagico[i][j]);
+            }
+        }
+    }
+    
     
 }
