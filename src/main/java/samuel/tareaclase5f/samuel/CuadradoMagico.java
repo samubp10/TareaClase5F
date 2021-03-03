@@ -46,4 +46,18 @@ public class CuadradoMagico {
         return resultado;
     }
 
+     public int sumarDiagonalPrincipal() {
+        int[] diagonalPrincipal = new int[cuadradoMagico.length];
+        int resultado = 0;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico[i].length; j++) {
+                if (i == j) {
+                    diagonalPrincipal[i] = cuadradoMagico[i][j];
+                    resultado += diagonalPrincipal[i];
+                }
+
+            }
+        }
+        return resultado;
+    }
 }
