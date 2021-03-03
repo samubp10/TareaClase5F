@@ -38,5 +38,12 @@ public class CuadradoMagico {
         return resultado;
     }
 
+    public int sumarColumna(int columna) {
+        int resultado = 0;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            resultado += cuadradoMagico[i][columna];
+        }
+        return resultado;
+    }
 
 }
