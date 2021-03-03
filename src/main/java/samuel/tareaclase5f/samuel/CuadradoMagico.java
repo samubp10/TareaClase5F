@@ -60,4 +60,18 @@ public class CuadradoMagico {
         }
         return resultado;
     }
+     
+     public int sumarDiagonalSecundaria() {
+        int[] diagonalSecundaria = new int[cuadradoMagico.length];
+        int resultado = 0;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico[i].length; j++) {
+                if (i + j == cuadradoMagico.length - 1) {
+                    diagonalSecundaria[i] = cuadradoMagico[i][j];
+                    resultado += diagonalSecundaria[i];
+                }
+            }
+        }
+        return resultado;
+    }
 }
