@@ -23,7 +23,7 @@ public class CuadradoMagico {
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
 
-                int enteroAleatorio = random.nextInt(9) + 1;
+                int enteroAleatorio = random.nextInt(2) + 1;
                 cuadradoMagico[i][j] = enteroAleatorio;
             }
         }
@@ -33,36 +33,35 @@ public class CuadradoMagico {
 
     public int sumarFila(int fila) {
         int resultado = 0;
-        if (fila >= cuadradoMagico[0].length || fila < 0) {
-            return 0;
+        if (fila < cuadradoMagico.length && fila >= 0) {
+
+            for (int i = 0; i < cuadradoMagico[0].length; i++) {
+                return resultado += cuadradoMagico[fila][i];
+            }
         }
-        for (int i = 0; i < cuadradoMagico[0].length; i++) {
-            resultado += cuadradoMagico[fila][i];
-        }
-        return resultado;
+        return 0;
     }
 //Recorre la columna introducida por el usuario y la suma
 
     public int sumarColumna(int columna) {
         int resultado = 0;
-        if (columna >= cuadradoMagico[0].length || columna < 0) {
-            return 0;
+        if (columna < cuadradoMagico.length && columna >= 0) {
+
+            for (int i = 0; i < cuadradoMagico.length; i++) {
+                return resultado += cuadradoMagico[i][columna];
+            }
         }
-        for (int i = 0; i < cuadradoMagico.length; i++) {
-            resultado += cuadradoMagico[i][columna];
-        }
-        return resultado;
+        return 0;
     }
 //Recorre la diagonal principal del array y la suma
 
     public int sumarDiagonalPrincipal() {
-        int[] diagonalPrincipal = new int[cuadradoMagico.length];
         int resultado = 0;
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
                 if (i == j) {
-                    diagonalPrincipal[i] = cuadradoMagico[i][j];
-                    resultado += diagonalPrincipal[i];
+                    resultado += cuadradoMagico[i][j];
+
                 }
 
             }
@@ -72,13 +71,12 @@ public class CuadradoMagico {
 //Recorre la diagonal secundaria del array y la suma
 
     public int sumarDiagonalSecundaria() {
-        int[] diagonalSecundaria = new int[cuadradoMagico.length];
         int resultado = 0;
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico[i].length; j++) {
                 if (i + j == cuadradoMagico.length - 1) {
-                    diagonalSecundaria[i] = cuadradoMagico[i][j];
-                    resultado += diagonalSecundaria[i];
+                    resultado += cuadradoMagico[i][j];
+
                 }
             }
         }
@@ -102,7 +100,7 @@ public class CuadradoMagico {
                 if (i == e) {
                     Magicos.add(true);
                 } else {
-                    Magicos.add(false);
+                    return false;
                 }
             }
         }
@@ -118,7 +116,7 @@ public class CuadradoMagico {
         ArrayList<Boolean> Magicos = new ArrayList<Boolean>();
         for (int i = 0; i < cuadradoMagico[0].length; i++) {
             for (int f = 0; f < cuadradoMagico[0].length; f++) {
-                resultado +=cuadradoMagico[f][i];
+                resultado += cuadradoMagico[f][i];
             }
             numeros.add(resultado);
             resultado = 0;
@@ -128,8 +126,8 @@ public class CuadradoMagico {
                 if (i == e) {
                     Magicos.add(true);
                 } else {
-                    Magicos.add(false);
-                    break;
+                    return false;
+
                 }
             }
         }
@@ -140,7 +138,8 @@ public class CuadradoMagico {
     }
 
     public boolean esCuadradoMagico() {
-        if(this.columnaMagica() && this.filaMagica() && this.sumarDiagonalPrincipal()==this.sumarDiagonalSecundaria()){
+        if (this.columnaMagica() && this.filaMagica()
+                && this.sumarDiagonalPrincipal() == this.sumarDiagonalSecundaria()) {
             return true;
         }
         return false;
