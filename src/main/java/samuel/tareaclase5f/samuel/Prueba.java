@@ -52,21 +52,21 @@ public class Prueba {
         cuadrados.add(cuadrado13);
         cuadrados.add(cuadrado14);
         cuadrados.add(cuadrado15);
-        //Pido al usuario tanto la columna como la fila que quiere comprobar
-        System.out.println("¿Qué columna le gustaría que se comprobase?");
-        int columna = escaner.nextInt();
-        System.out.println("¿Qué fila le gustaría que se comprobase?");
-        int fila = escaner.nextInt();
+
         int i = 1;
         //Recorro el arraylist ejecutanto el método esCuadradoMagico para saber 
         //si ese cuadrado es un cuadrado mágico o no
         for (CuadradoMagico cuadrado : cuadrados) {
 
-            if (cuadrado.esCuadradoMagico(fila, columna)) {
+            if (cuadrado.esCuadradoMagico()) {
+                System.out.println("==================");
+                cuadrado.imprimirMatriz();
                 System.out.println("El cuadrado cuadrado" + i + " es un cuadrado mágico");
                 i++;
 
             } else {
+                System.out.println("==================");
+                cuadrado.imprimirMatriz();
                 System.out.println("El cuadrado cuadrado" + i + " no es un cuadrado mágico");
                 i++;
 

@@ -5,6 +5,7 @@
  */
 package samuel.tareaclase5f.samuel;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -85,13 +86,61 @@ public class CuadradoMagico {
     }
 //Es un método booleano que devuelve true en el caso en el que sea un cuadrado mágico
 
-    public boolean esCuadradoMagico() {
-        int resultado;
-        for (int i = 0; i < cuadradoMagico[0].length; i++) {
-            
+    public boolean filaMagica() {
+        int resultado = 0;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        ArrayList<Boolean> Magicos = new ArrayList<Boolean>();
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico[i].length; j++) {
+                resultado += cuadradoMagico[i][j];
+            }
+            numeros.add(resultado);
+            resultado = 0;
         }
-        if (this.sumarFila(1) == this.sumarColumna(1)
-                && this.sumarFila(1) == this.sumarDiagonalPrincipal() && this.sumarFila(1) == this.sumarDiagonalSecundaria()) {
+        for (Integer i : numeros) {
+            for (Integer e : numeros) {
+                if (i == e) {
+                    Magicos.add(true);
+                } else {
+                    Magicos.add(false);
+                }
+            }
+        }
+        if (Magicos.contains(false)) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean columnaMagica() {
+        int resultado = 0;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        ArrayList<Boolean> Magicos = new ArrayList<Boolean>();
+        for (int i = 0; i < cuadradoMagico[0].length; i++) {
+            for (int f = 0; f < cuadradoMagico[0].length; f++) {
+                resultado +=cuadradoMagico[f][i];
+            }
+            numeros.add(resultado);
+            resultado = 0;
+        }
+        for (Integer i : numeros) {
+            for (Integer e : numeros) {
+                if (i == e) {
+                    Magicos.add(true);
+                } else {
+                    Magicos.add(false);
+                    break;
+                }
+            }
+        }
+        if (Magicos.contains(false)) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean esCuadradoMagico() {
+        if(this.columnaMagica() && this.filaMagica() && this.sumarDiagonalPrincipal()==this.sumarDiagonalSecundaria()){
             return true;
         }
         return false;
@@ -99,10 +148,11 @@ public class CuadradoMagico {
 //Recorre la matriz imprimiendo los valores
 
     public void imprimirMatriz() {
-        for (int i = 0; i < cuadradoMagico.length; i++) {
-            for (int j = 0; j < cuadradoMagico[i].length; j++) {
-                System.out.println(cuadradoMagico[i][j]);
+        for (int x = 0; x < cuadradoMagico.length; x++) {
+            for (int y = 0; y < cuadradoMagico[x].length; y++) {
+                System.out.print(" | " + cuadradoMagico[x][y] + " | ");
             }
+            System.out.println(" ");
         }
     }
 
